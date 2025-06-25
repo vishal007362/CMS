@@ -19,5 +19,4 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   # path('api/', include('doctor.urls')),  # ✅ This is the correct app name
 ]
