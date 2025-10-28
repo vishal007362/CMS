@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +46,7 @@ INSTALLED_APPS = [
     'doctor',
     'labtechnician',
     'administrator',
-    'auth',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -55,8 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'CMS.urls'
 
 TEMPLATES = [
@@ -85,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'cmsproject',
         'USER':'root',
-        'PASSWORD':'faith',
+        'PASSWORD':'admin123',
         'HOST':'localhost',
         'PORT':3306
     }
